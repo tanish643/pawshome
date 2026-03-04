@@ -1,0 +1,143 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* WARM DARK EDITORIAL THEME (Pet Adoption Focused) */
+    /* Background: Deep Warm Grey/Brown (Cozy & Premium) */
+    --background: 30 10% 12%;
+    /* #24211F */
+    --foreground: 40 30% 96%;
+    /* Creamy White */
+
+    --card: 30 15% 16%;
+    --card-foreground: 40 30% 96%;
+
+    --popover: 30 15% 14%;
+    --popover-foreground: 40 30% 96%;
+
+    /* Primary: Friendly Vibrant Orange (Energy & Adoption) */
+    --primary: 25 95% 60%;
+    /* #FF8534 */
+    --primary-foreground: 30 10% 12%;
+    --primary-glow: 25 95% 60% 0.5;
+
+    /* Secondary: Soft Warm Beige */
+    --secondary: 40 20% 20%;
+    --secondary-foreground: 40 30% 96%;
+
+    --muted: 30 10% 20%;
+    --muted-foreground: 30 5% 65%;
+
+    --accent: 25 95% 60%;
+    --accent-foreground: 30 10% 12%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 30 10% 25%;
+    --input: 30 10% 25%;
+    --ring: 25 95% 60%;
+
+    --radius: 0rem;
+    /* Keeping sharp corners as requested */
+
+    /* Warm Gradient for Hero */
+    --gradient-hero: linear-gradient(180deg, rgba(255, 133, 52, 0.05) 0%, rgba(36, 33, 31, 1) 100%);
+  }
+
+  .dark {
+    /* Enforcing the same Warm Dark theme */
+    --background: 30 10% 12%;
+    --foreground: 40 30% 96%;
+    --primary: 25 95% 60%;
+    --primary-foreground: 30 10% 12%;
+    --card: 30 15% 16%;
+    --card-foreground: 40 30% 96%;
+    --secondary: 40 20% 20%;
+    --secondary-foreground: 40 30% 96%;
+    --muted: 30 10% 20%;
+    --muted-foreground: 30 5% 65%;
+    --accent: 25 95% 60%;
+    --accent-foreground: 30 10% 12%;
+    --border: 30 10% 25%;
+    --input: 30 10% 25%;
+    --ring: 25 95% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased font-sans selection:bg-primary selection:text-primary-foreground;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display tracking-tight uppercase;
+  }
+}
+
+@layer utilities {
+  .font-script {
+    font-family: 'Satisfy', cursive;
+  }
+
+  /* Editorial Utilities */
+  .text-outline {
+    -webkit-text-stroke: 1px var(--primary);
+    color: transparent;
+  }
+
+  .text-outline-white {
+    -webkit-text-stroke: 1px white;
+    color: transparent;
+  }
+
+  .text-giant {
+    font-size: clamp(3rem, 15vw, 12rem);
+    line-height: 0.85;
+  }
+
+  .img-sharp {
+    @apply transition-all duration-500 hover:brightness-110 filter hover:contrast-125;
+  }
+
+  /* Custom Scrollbar for the Warm theme */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #24211F;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #4A403A;
+    border-radius: 0px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #FF8534;
+  }
+
+  .glass {
+    @apply bg-white/5 backdrop-blur-md border border-white/10;
+  }
+
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-sm border border-border shadow-md;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}

@@ -1,0 +1,15 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    match /{allPaths=**} {
+      // Allow read/write if authenticated.
+      // In production, you'd want stricter rules (e.g. only owner can delete).
+      allow read, write: if isAuthenticated();
+    }
+  }
+}
